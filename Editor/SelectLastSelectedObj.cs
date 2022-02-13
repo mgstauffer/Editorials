@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityToolbarExtender;
+using System.IO;
 
 
 public class SelectLastSelectedObj : EditorWindow
@@ -20,13 +21,15 @@ public class SelectLastSelectedObj : EditorWindow
     [MenuItem("Tools/Editorials/Select Last &`")]
     static void SelectLast()
     {
+        //string loadedLevel = File.ReadAllText("Assets/Editorials/SelectData/ObjLastSelect.select");
+        //LastSelectionData data = JsonUtility.FromJson<LastSelectionData>(loadedLevel);
         Selection.activeGameObject = prevSelection;
     }
     void OnSelectionChange()
     {
         prevSelection = currentSelection;
         currentSelection = Selection.activeGameObject;
-        
+        //Save();
     }
 
     void OnGUI()
@@ -46,5 +49,28 @@ public class SelectLastSelectedObj : EditorWindow
         
     }
 
-    
+    public void Save()
+    {
+        LastSelectionData dat = new LastSelectionData();
+        dat.previous = prevSelection.name;
+        dat.current = currentSelection.name;
+        string dataAsJson = JsonUtility.ToJson(dat, true);
+        string directory = ("Assets/Editorials/SelectData");
+
+        string FilePath = directory + "/" + "ObjLastSelect" + ".select";
+        DirectoryInfo dir = new DirectoryInfo(FilePath);
+        if (!Directory.Exists(directory))
+        {
+            Directory.CreateDirectory(directory);
+        }
+        if (File.Exists(FilePath))
+        {
+            File.Delete(FilePath);
+        }
+
+
+
+        File.WriteAllText(FilePath, dataAsJson);
+
+    }
 }

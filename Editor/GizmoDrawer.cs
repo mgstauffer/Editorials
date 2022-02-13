@@ -78,10 +78,10 @@ using UnityEditor;
             switch (dt)
             {
                 case DrawType.Mesh:
-                    giz.mesh = true;
+                    giz.drawType = DrawingType.Mesh;
                     break;
                 case DrawType.Wire:
-                    giz.mesh = false;
+                    giz.drawType = DrawingType.Wire;
                     break;
                 default:
                     Debug.LogError("Invalid draw type (Did you add a custom draw type and not set it up properly?)");
@@ -90,10 +90,10 @@ using UnityEditor;
             switch (dm)
             {
                 case DrawMesh.Cube:
-                    giz.cube = true;
+                    giz.drawMesh = DrawingMesh.Cube;
                     break;
                 case DrawMesh.Sphere:
-                    giz.cube = false;
+                    giz.drawMesh = DrawingMesh.Sphere;
                     break;
                 default:
                     Debug.LogError("Invalid mesh type (Did you add a custom mesh type and not set it up properly?)");

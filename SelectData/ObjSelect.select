@@ -1,9 +1,9 @@
 {
     "objs": [
+        "Main Camera",
+        "Directional Light",
         "Capsule",
         "Capsule (1)",
-        "Capsule (2)",
-        "Main Camera",
-        "Directional Light"
+        "Capsule (2)"
     ]
 }

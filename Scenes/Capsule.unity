@@ -281,7 +281,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!136 &733091825
 CapsuleCollider:
@@ -368,11 +368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6402ace8a51a32f49b63cdcb02889648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 22.3
+  size: 11.7
   drawPoint: {fileID: 733091828}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  mesh: 0
-  cube: 0
+  color: {r: 0, g: 1, b: 0.06247568, a: 255}
+  drawType: 0
+  drawMesh: 0
 --- !u!1 &1395633111
 GameObject:
   m_ObjectHideFlags: 0
