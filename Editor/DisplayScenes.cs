@@ -31,7 +31,7 @@ public static class DisplayScenes
             EditorGUILayout.Popup(0, dummyEntries);
         }
         
-        if(aridx != currentaridx && ReadNames(true).Length > 0)
+        if(aridx != currentaridx && ReadNames(true).Length > 0 && EditorApplication.isPlaying == false)
         {
             EditorSceneManager.OpenScene(ReadNames(true)[aridx]);
             currentaridx = aridx;
