@@ -12,14 +12,17 @@ namespace ClassCreater.Window
     {
         string className;
         string classInheritance;
-        string copypath = "Assets/Scripts/";
+        static string copypath;
         bool tog = true;
+        static string classnameplayerprefs = "Editorials_ClassCreator_Copypath";
         [MenuItem("Tools/Editorials/ClassCreater")]
         public static void ShowWindow()
         {
             EditorWindow win = EditorWindow.GetWindow<ClassCreaterWindow>("Class Creater");
             win.maxSize = new Vector2(300, 100);
             win.minSize = new Vector2(300, 100);
+            copypath = PlayerPrefs.GetString(classnameplayerprefs);
+            
         }
 
         void OnGUI()
@@ -48,7 +51,7 @@ namespace ClassCreater.Window
                     copypath += "/";
                 }
                 CreateClass.Create(className, classInheritance, copypath);
-
+                PlayerPrefs.SetString(classnameplayerprefs, copypath);
             }
         }
     }
