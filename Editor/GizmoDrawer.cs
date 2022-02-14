@@ -30,7 +30,7 @@ using UnityEditor;
         public static void ShowWindow()
         {
             EditorWindow win = GetWindow<GizmoDrawer>("Draw Gizmo");
-            win.maxSize = new Vector2(300, 160);
+            win.maxSize = new Vector2(300, 185);
             win.minSize = win.maxSize;
         }
 

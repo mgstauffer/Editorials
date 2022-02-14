@@ -43,7 +43,12 @@ namespace ClassCreater.Window
             }
             if (GUILayout.Button("Create") && className.Length > 0 && classInheritance.Length > 0)
             {
+                if (copypath[copypath.Length -1].ToString() != "/")
+                {
+                    copypath += "/";
+                }
                 CreateClass.Create(className, classInheritance, copypath);
+
             }
         }
     }
