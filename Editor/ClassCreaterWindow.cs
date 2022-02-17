@@ -15,10 +15,10 @@ namespace ClassCreater.Window
         static string copypath;
         bool tog = true;
         static string classnameplayerprefs = "Editorials_ClassCreator_Copypath";
-        [MenuItem("Tools/Editorials/ClassCreater")]
+        [MenuItem("Tools/Editorials/ClassCreator")]
         public static void ShowWindow()
         {
-            EditorWindow win = EditorWindow.GetWindow<ClassCreaterWindow>("Class Creater");
+            EditorWindow win = EditorWindow.GetWindow<ClassCreaterWindow>("Class Creator");
             win.maxSize = new Vector2(300, 100);
             win.minSize = new Vector2(300, 100);
             copypath = PlayerPrefs.GetString(classnameplayerprefs);

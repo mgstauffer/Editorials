@@ -11,10 +11,10 @@ public class SelectLastSelectedObj : EditorWindow
     public static GameObject currentSelection;
     public static GameObject prevSelection;
 
-    [MenuItem("Tools/Editorials/Last Selecter")]
+    [MenuItem("Tools/Editorials/Last Selector")]
     public static void ShowWindow()
     {
-        EditorWindow win = EditorWindow.GetWindow<SelectLastSelectedObj>("Last Selecter");
+        EditorWindow win = EditorWindow.GetWindow<SelectLastSelectedObj>("Last Selector");
         win.maxSize = new Vector2(250, 100);
     }
 
