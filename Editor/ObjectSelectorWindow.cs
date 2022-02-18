@@ -26,7 +26,7 @@ public class ObjectSelectorWindow : EditorWindow
     public static void ShowWindow()
     {
         EditorWindow win = EditorWindow.GetWindow<ObjectSelectorWindow>("Object HotKey Selector Window");
-        win.maxSize = new Vector2(500, 120);
+        win.maxSize = new Vector2(500, 100);
         win.maxSize = win.maxSize;
     }
  
@@ -56,34 +56,34 @@ public class ObjectSelectorWindow : EditorWindow
     void OnGUI()
     {
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Object 1 - Alt+Shift+1");
+        EditorGUILayout.LabelField("Object 1 - Shift+Alt+1");
         UnityEngine.Object obj = EditorGUILayout.ObjectField(g1, typeof(GameObject), true);
         g1 = (GameObject)obj;
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.LabelField("Object 2 - Alt+Shift+2");
+        EditorGUILayout.LabelField("Object 2 - Shift+Alt+2");
         UnityEngine.Object obj2 = EditorGUILayout.ObjectField(g2, typeof(GameObject), true);
         g2 = (GameObject)obj2;
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
 
-        EditorGUILayout.LabelField("Object 3 - Alt+Shift+3");
+        EditorGUILayout.LabelField("Object 3 - Shift+Alt+3");
         UnityEngine.Object obj3 = EditorGUILayout.ObjectField(g3, typeof(GameObject), true);
         g3 = (GameObject)obj3;
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
 
-        EditorGUILayout.LabelField("Object 4 - Alt+Shift+4");
+        EditorGUILayout.LabelField("Object 4 - Shift+Alt+4");
         UnityEngine.Object obj4 = EditorGUILayout.ObjectField(g4, typeof(GameObject), true);
         g4 = (GameObject)obj4;
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
 
-        EditorGUILayout.LabelField("Object 5 - Alt+Shift+5");
+        EditorGUILayout.LabelField("Object 5 - Shift+Alt+5");
         UnityEngine.Object obj5 = EditorGUILayout.ObjectField(g5, typeof(GameObject), true);
         g5 = (GameObject)obj5;
         EditorGUILayout.EndHorizontal();

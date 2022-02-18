@@ -1,8 +1,8 @@
 {
     "objs": [
-        "empty",
-        "empty",
-        "empty",
+        "Main Camera",
+        "Directional Light",
+        "EventSystem",
         "empty",
         "empty"
     ]
