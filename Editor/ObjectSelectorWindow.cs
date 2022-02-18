@@ -26,7 +26,7 @@ public class ObjectSelectorWindow : EditorWindow
     public static void ShowWindow()
     {
         EditorWindow win = EditorWindow.GetWindow<ObjectSelectorWindow>("Object HotKey Selector Window");
-        win.maxSize = new Vector2(300, 110);
+        win.maxSize = new Vector2(500, 120);
         win.maxSize = win.maxSize;
     }
  
@@ -117,7 +117,7 @@ public class ObjectSelectorWindow : EditorWindow
 
     }
 
-    [MenuItem("Tools/Editorials/ObjSelect/1 &#1")]
+    [MenuItem("Tools/Editorials/ObjSelect/1 #&1")]
     public static void Select1()
     {
         if (GetSavedSelections().objs[0] != "empty")
@@ -130,7 +130,7 @@ public class ObjectSelectorWindow : EditorWindow
         }
         
     }
-    [MenuItem("Tools/Editorials/ObjSelect/2 &#2")]
+    [MenuItem("Tools/Editorials/ObjSelect/2 #&2")]
     public static void Select2()
     {
         if (GetSavedSelections().objs[1] != "empty")
@@ -142,7 +142,7 @@ public class ObjectSelectorWindow : EditorWindow
             Debug.LogWarning("object 2 is empty");
         }
     }
-    [MenuItem("Tools/Editorials/ObjSelect/3 &#3")]
+    [MenuItem("Tools/Editorials/ObjSelect/3 #&3")]
     public static void Select3()
     {
         if (GetSavedSelections().objs[2] != "empty")
@@ -155,7 +155,7 @@ public class ObjectSelectorWindow : EditorWindow
         }
     }
 
-    [MenuItem("Tools/Editorials/ObjSelect/4 &#4")]
+    [MenuItem("Tools/Editorials/ObjSelect/4 #&4")]
     public static void Select4()
     {
         if (GetSavedSelections().objs[3] != "empty")
@@ -168,7 +168,7 @@ public class ObjectSelectorWindow : EditorWindow
         }
     }
 
-    [MenuItem("Tools/Editorials/ObjSelect/5 &#5")]
+    [MenuItem("Tools/Editorials/ObjSelect/5 #&5")]
     public static void Select5()
     {
         if (GetSavedSelections().objs[4] != "empty")
