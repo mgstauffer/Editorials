@@ -45,15 +45,13 @@ public class InspectorButtons : EditorWindow
             view = EditorGUILayout.BeginScrollView(view);
             foreach (MethodInfo method in me)
             {
-                if (method.GetParameters().Length <= 0)
-                {
-                    if (GUILayout.Button(method.Name))
-                    {
-                        object instance = Activator.CreateInstance(method.DeclaringType);
-                        method.Invoke(instance, null);
 
-                    }
+                if (GUILayout.Button(method.Name))
+                {
+                        MethodInvokerParamater.ShowWindow(method, source);
+
                 }
+                
             }
             EditorGUILayout.EndScrollView();
         }

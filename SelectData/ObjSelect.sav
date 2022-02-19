@@ -3,7 +3,7 @@
         "Main Camera",
         "Directional Light",
         "EventSystem",
-        "empty",
-        "empty"
+        "Canvas",
+        "Body"
     ]
 }

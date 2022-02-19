@@ -16,7 +16,7 @@ public class ObjectSelectorWindow : EditorWindow
             {
                 Directory.CreateDirectory(directory);
             }
-            return directory + "/" + "ObjSelect" + ".select";
+            return directory + "/" + "ObjSelect" + ".sav";
         }
     }
 
@@ -58,13 +58,16 @@ public class ObjectSelectorWindow : EditorWindow
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Object 1 - Shift+Alt+1");
         UnityEngine.Object obj = EditorGUILayout.ObjectField(g1, typeof(GameObject), true);
+        
         g1 = (GameObject)obj;
+        Save();
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.LabelField("Object 2 - Shift+Alt+2");
         UnityEngine.Object obj2 = EditorGUILayout.ObjectField(g2, typeof(GameObject), true);
         g2 = (GameObject)obj2;
+        Save();
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
@@ -72,6 +75,7 @@ public class ObjectSelectorWindow : EditorWindow
         EditorGUILayout.LabelField("Object 3 - Shift+Alt+3");
         UnityEngine.Object obj3 = EditorGUILayout.ObjectField(g3, typeof(GameObject), true);
         g3 = (GameObject)obj3;
+        Save();
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
@@ -79,6 +83,7 @@ public class ObjectSelectorWindow : EditorWindow
         EditorGUILayout.LabelField("Object 4 - Shift+Alt+4");
         UnityEngine.Object obj4 = EditorGUILayout.ObjectField(g4, typeof(GameObject), true);
         g4 = (GameObject)obj4;
+        Save();
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginHorizontal();
@@ -86,6 +91,7 @@ public class ObjectSelectorWindow : EditorWindow
         EditorGUILayout.LabelField("Object 5 - Shift+Alt+5");
         UnityEngine.Object obj5 = EditorGUILayout.ObjectField(g5, typeof(GameObject), true);
         g5 = (GameObject)obj5;
+        Save();
         EditorGUILayout.EndHorizontal();
 
         /* we auto-save now

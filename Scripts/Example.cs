@@ -16,4 +16,26 @@ public class Example : MonoBehaviour
         Debug.Log("Update");
     }
 
+    public void MethodInvokeryay(string input, int repeat, bool isError)
+    {
+        if(repeat > 0)
+        {
+            for (int i = 0; i < repeat; i++)
+            {
+                if (!isError)
+                {
+                    Debug.Log(input);
+                }
+                else
+                {
+                    Debug.LogError(input);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Boring");
+        }
+        
+    }
 }
