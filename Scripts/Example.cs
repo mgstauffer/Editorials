@@ -38,4 +38,10 @@ public class Example : MonoBehaviour
         }
         
     }
+
+    public void CreateObject(string name, Transform parent)
+    {
+        GameObject go = new GameObject(name);
+        go.transform.parent = parent;   
+    }
 }

@@ -20,6 +20,12 @@ public class MethodInvokerParamater : EditorWindow
         parameters = m.GetParameters();
         parametersToReturn = new object[parameters.Length] ;
     }
+    public void HideWindow()
+    {
+        EditorWindow win = EditorWindow.GetWindow<MethodInvokerParamater>("Method Invoker");
+        win.Close();
+       
+    }
 
     public void OnGUI()
     {
@@ -59,7 +65,7 @@ public class MethodInvokerParamater : EditorWindow
                 {
                     Type t = parameters[i].ParameterType;
 
-                    parametersToReturn[i] = EditorGUILayout.ObjectField((UnityEngine.Object)parametersToReturn[i], t, true);
+                    parametersToReturn[i] = EditorGUILayout.ObjectField(parameters[i].Name, (UnityEngine.Object)parametersToReturn[i], t, true);
                     parametersToReturn[i] = Convert.ChangeType(parametersToReturn[i], t);
 
                 }
@@ -77,10 +83,12 @@ public class MethodInvokerParamater : EditorWindow
             if (parameters.Length > 0)
             {
                 method.Invoke(instance, parametersToReturn);
+                HideWindow();
             }
             else
             {
                 method.Invoke(instance, null);
+                HideWindow();
             }
         }
         EditorGUILayout.LabelField(method.Name);

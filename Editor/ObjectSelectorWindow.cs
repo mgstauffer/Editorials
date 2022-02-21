@@ -60,6 +60,7 @@ public class ObjectSelectorWindow : EditorWindow
         UnityEngine.Object obj = EditorGUILayout.ObjectField(g1, typeof(GameObject), true);
         
         g1 = (GameObject)obj;
+        
         Save();
         EditorGUILayout.EndHorizontal();
 
