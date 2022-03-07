@@ -12,7 +12,7 @@ public class MethodInvokerParamater : EditorWindow
     Vector2 view;
     static object[] parametersToReturn;
 
-    public static void ShowWindow(MethodInfo m, MonoScript src)
+    public static void ShowWindow(MethodInfo m)
     {
         EditorWindow win = EditorWindow.GetWindow<MethodInvokerParamater>("Method Invoker");
         win.minSize = new Vector2(300, 400);

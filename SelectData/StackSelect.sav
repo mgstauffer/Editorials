@@ -1,7 +1,5 @@
 {
     "objs": [
-        "Directional Light",
-        "EventSystem",
         "Main Camera",
         "Canvas"
     ]

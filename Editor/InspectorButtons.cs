@@ -12,15 +12,15 @@ public class InspectorButtons : EditorWindow
 {
     
     public MonoScript source;
-
+    List<MethodInfo> methodsToAdd = new List<MethodInfo>();
     List<string> methods;
     Vector2 view;
     
     [MenuItem("Tools/Editorials/Method Invoker")]
     public static void ShowWindow()
     {
-        EditorWindow.GetWindow<InspectorButtons>("Method Invoker");
-        
+        EditorWindow win = EditorWindow.GetWindow<InspectorButtons>("Method Invoker");
+        win.minSize = new Vector2(100, 100);
     }
 
     private void OnGUI()
@@ -47,31 +47,44 @@ public class InspectorButtons : EditorWindow
             view = EditorGUILayout.BeginScrollView(view);
             foreach (MethodInfo method in me)
             {
-
-                if (GUILayout.Button(method.Name))
+                if(method.GetParameters().Length <= 0)
                 {
-                        MethodInvokerParamater.ShowWindow(method, source);
+                    if (GUILayout.Button(method.Name))
+                    {
+                        methodsToAdd.Add(method);
 
+                    }
                 }
+                
                 
             }
             EditorGUILayout.EndScrollView();
         }
 
+
+        EditorGUILayout.LabelField("");
+        
         
         //if (GUILayout.Button("Reset"))
         //{
 
         //}
-        //if(source != null)
-        //{
-        //    if (GUILayout.Button("Generate"))
-        //    {
-        //        CreateClass cc = new CreateClass();
-        //        cc.Create(source.name);
+        if (source != null)
+        {
+            if (GUILayout.Button("Generate"))
+            {
+                CreateCustomEditor.Create(source.name, null, methodsToAdd.ToArray(), source);
 
-        //    }
-        //}
+            }
+        }
+
+        if (methodsToAdd.Count > 0)
+        {
+            foreach (MethodInfo method in methodsToAdd)
+            {
+                EditorGUILayout.LabelField(method.Name);
+            }
+        }
     }
 
 
