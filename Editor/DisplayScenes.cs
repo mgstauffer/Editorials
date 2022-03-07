@@ -28,6 +28,7 @@ public static class DisplayScenes
             if (EditorGUI.EndChangeCheck())
             {
                 //do stuff
+                
                 if (aridx != currentaridx && ReadNames(true).Length > 0 && EditorApplication.isPlaying == false)
                 {
                     EditorSceneManager.OpenScene(ReadNames(true)[aridx]);

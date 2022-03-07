@@ -8,6 +8,8 @@ public class Website : MonoBehaviour
     
     public void Open()
     {
+        
+
         Application.OpenURL("https://nixstud.weebly.com/assets.html");
     }
 
