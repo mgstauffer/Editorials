@@ -23,7 +23,17 @@ public static class DisplayScenes
         
         if(ReadNames(true).Length > 0)
         {
+            EditorGUI.BeginChangeCheck();
             aridx = EditorGUILayout.Popup(aridx, ReadNames(false));
+            if (EditorGUI.EndChangeCheck())
+            {
+                //do stuff
+                if (aridx != currentaridx && ReadNames(true).Length > 0 && EditorApplication.isPlaying == false)
+                {
+                    EditorSceneManager.OpenScene(ReadNames(true)[aridx]);
+                    currentaridx = aridx;
+                }
+            }
         }
         else
         {
@@ -31,11 +41,6 @@ public static class DisplayScenes
             EditorGUILayout.Popup(0, dummyEntries);
         }
         
-        if(aridx != currentaridx && ReadNames(true).Length > 0 && EditorApplication.isPlaying == false)
-        {
-            EditorSceneManager.OpenScene(ReadNames(true)[aridx]);
-            currentaridx = aridx;
-        }
         
     }
 

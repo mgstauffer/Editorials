@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Reflection;
 using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 public class MethodInvokerParamater : EditorWindow
 {
@@ -92,10 +94,30 @@ public class MethodInvokerParamater : EditorWindow
             }
         }
         EditorGUILayout.LabelField(method.Name);
+
+        
     }
 
     public T ConvertObject<T>(object input)
     {
         return (T)Convert.ChangeType(input, typeof(T));
+    }
+
+    
+    public static MethodInfo GetMethodInfo(LambdaExpression expression)
+    {
+        MethodCallExpression outermostExpression = expression.Body as MethodCallExpression;
+
+        if (outermostExpression == null)
+        {
+            throw new ArgumentException("Invalid Expression. Expression should consist of a Method call only.");
+        }
+
+        return outermostExpression.Method;
+    }
+
+    public static MethodInfo GetMethodInfo<T>(Expression<Action<T>> expression)
+    {
+        return GetMethodInfo((LambdaExpression)expression);
     }
 }

@@ -34,7 +34,10 @@ namespace ClassCreater
                     outFile.WriteLine("using UnityEngine;");
                     outFile.WriteLine("using UnityEditor;");
                     outFile.WriteLine("using System.Collections;");
-                    outFile.WriteLine("");
+                    outFile.WriteLine("using System.Reflection;");
+                outFile.WriteLine("using System.Linq;");
+                outFile.WriteLine("using System.Linq.Expressions;");
+                outFile.WriteLine("");
                     outFile.WriteLine("[CustomEditor(typeof(" + t + "))]");
                     outFile.WriteLine("public class " + name + " : " + "Editor" + " {");
                     outFile.WriteLine(" ");
@@ -57,7 +60,9 @@ namespace ClassCreater
                         outFile.WriteLine(" ");
                         outFile.WriteLine(" if(GUILayout.Button(" + "\"" + method.Name + "\"" +  "))");
                         outFile.WriteLine(" {");
-                        outFile.WriteLine("   tar."+method.Name+"();");
+                        //outFile.WriteLine("   tar."+method.Name+"();");
+                        outFile.WriteLine("MethodInfo methodInf = MethodInvokerParamater.GetMethodInfo<"+t+">(ta => ta." + method.Name + "("+ GetParamNulls(method) +"));");
+                        outFile.WriteLine("MethodInvokerParamater.ShowWindow(methodInf);");
                         outFile.WriteLine(" }");
                     }
                     outFile.WriteLine("}");
@@ -70,5 +75,49 @@ namespace ClassCreater
             AssetDatabase.Refresh();
 
         }
+        static object GetParamNulls(MethodInfo met)
+        {
+            string s = "";
+            for (int i = 0; i < met.GetParameters().Length; i++)
+            {
+                if(i != met.GetParameters().Length - 1)
+                {
+                    if(met.GetParameters()[i].ParameterType == typeof(int))
+                    {
+                        s += "0,";
+                    }
+                    else if(met.GetParameters()[i].ParameterType == typeof(bool))
+                    {
+                        s += "false,";
+                    }
+                    else
+                    {
+                        s += "null,";
+                    }
+                    
+                }
+                else
+                {
+                    if (met.GetParameters()[i].ParameterType == typeof(int))
+                    {
+                        s += "0";
+                    }
+                    else if (met.GetParameters()[i].ParameterType == typeof(bool))
+                    {
+                        s += "false";
+                    }
+                    else
+                    {
+                        s += "null";
+                    }
+                    
+                }
+                
+            }
+            
+            return s;
+        }
     }
+
+    
 }
