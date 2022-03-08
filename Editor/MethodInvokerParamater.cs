@@ -41,33 +41,33 @@ public class MethodInvokerParamater : EditorWindow
                 if (parameters[i].ParameterType == typeof(string))
                 {
                     parametersToReturn[i] = parametersToReturn[i] == null ? "Input Here" : parametersToReturn[i];
-                    parametersToReturn[i] = EditorGUILayout.TextField(parameters[i].Name, (string)parametersToReturn[i]);
+                    parametersToReturn[i] = EditorGUILayout.TextField(parameters[i].Name + "("+parameters[i].ParameterType+")", (string)parametersToReturn[i]);
 
                 }
                 else if (parameters[i].ParameterType == typeof(int))
                 {
                     
                     parametersToReturn[i] = parametersToReturn[i] == null? 0 : parametersToReturn[i];
-                    parametersToReturn[i] = EditorGUILayout.IntField(parameters[i].Name, (int)parametersToReturn[i]);
+                    parametersToReturn[i] = EditorGUILayout.IntField(parameters[i].Name + "(" + parameters[i].ParameterType + ")", (int)parametersToReturn[i]);
 
                 }
                 else if (parameters[i].ParameterType == typeof(double))
                 {
                     parametersToReturn[i] = parametersToReturn[i] == null ? 0 : parametersToReturn[i];
-                    parametersToReturn[i] = EditorGUILayout.DoubleField(parameters[i].Name, (double)parametersToReturn[i]);
+                    parametersToReturn[i] = EditorGUILayout.DoubleField(parameters[i].Name + "(" + parameters[i].ParameterType + ")", (double)parametersToReturn[i]);
 
                 }
                 else if (parameters[i].ParameterType == typeof(bool))
                 {
                     parametersToReturn[i] = parametersToReturn[i] == null ? false : parametersToReturn[i];
-                    parametersToReturn[i] = EditorGUILayout.Toggle(parameters[i].Name, (bool)parametersToReturn[i]);
+                    parametersToReturn[i] = EditorGUILayout.Toggle(parameters[i].Name + "(" + parameters[i].ParameterType + ")", (bool)parametersToReturn[i]);
 
                 }
                 else
                 {
                     Type t = parameters[i].ParameterType;
 
-                    parametersToReturn[i] = EditorGUILayout.ObjectField(parameters[i].Name, (UnityEngine.Object)parametersToReturn[i], t, true);
+                    parametersToReturn[i] = EditorGUILayout.ObjectField(parameters[i].Name + "(" + parameters[i].ParameterType + ")", (UnityEngine.Object)parametersToReturn[i], t, true);
                     parametersToReturn[i] = Convert.ChangeType(parametersToReturn[i], t);
 
                 }

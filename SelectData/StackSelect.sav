@@ -1,5 +1,7 @@
 {
     "objs": [
-        "Directional Light"
+        "bobby",
+        "Cube",
+        "Main Camera"
     ]
 }

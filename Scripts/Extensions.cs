@@ -44,7 +44,7 @@ public static class Extensions
 
     }
 
-    public static Vector3 FindPointInBounds(this Collider col)
+    public static Vector3 GetRandomPointInBounds(this Collider col)
     {
         return new Vector3(
             Random.Range(col.bounds.min.x, col.bounds.max.x),
@@ -53,7 +53,7 @@ public static class Extensions
         );
     }
 
-    public static Vector2 FindPointInBounds2D(this Collider2D col)
+    public static Vector2 GetRandomPointInBounds2D(this Collider2D col)
     {
         return new Vector2(
             Random.Range(col.bounds.min.x, col.bounds.max.x),
@@ -61,7 +61,7 @@ public static class Extensions
         );
     }
 
-    public static Vector3 FindPointInRange(this UnityEngine.MonoBehaviour mono, float minX, float maxX, float minY, float maxY, float minZ, float maxZ)
+    public static Vector3 GetRandomPointInRange(this UnityEngine.MonoBehaviour mono, float minX, float maxX, float minY, float maxY, float minZ, float maxZ)
     {
         return new Vector3(
             Random.Range(minX, maxX),
@@ -69,16 +69,12 @@ public static class Extensions
             Random.Range(minZ, maxZ)
         );
     }
-    public static Vector2 FindPointInRange2D(this UnityEngine.MonoBehaviour mono, float minX, float maxX, float minY, float maxY)
+    public static Vector2 GetRandomPointInRange2D(this UnityEngine.MonoBehaviour mono, float minX, float maxX, float minY, float maxY)
     {
         return new Vector2(
             Random.Range(minX, maxX),
             Random.Range(minY, maxY)
         );
-    }
-    public static float FindPointOnLine(this UnityEngine.MonoBehaviour mono, float minX, float maxX)
-    {
-        return Random.Range(minX, maxX);
     }
 
     public static void CreateObject(this GameObject obj, string name, Vector3 spawnPos, Quaternion spawnRot)
@@ -88,7 +84,7 @@ public static class Extensions
         g.transform.rotation = spawnRot;
     }
 
-    public static void CreateObject(this GameObject obj, string name, Vector3 spawnPos, Quaternion spawnRot, System.Type[] components)
+    public static void CreateObject(this GameObject obj, string name, Vector3 spawnPos, Quaternion spawnRot, params System.Type[] components)
     {
         GameObject g = new GameObject(name);
         g.transform.position = spawnPos;
